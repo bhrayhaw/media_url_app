@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
-import axios from "axios";
+import API from "../services/api";
 
 const Upload: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -18,15 +18,7 @@ const Upload: React.FC = () => {
     formData.append("file", file);
 
     try {
-      const res = await axios.post(
-        "https://https://url-gen.onrender.com/api/upload",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await API.post("/api/upload", formData);
 
       setUrl(res.data.url);
     } catch (error) {
