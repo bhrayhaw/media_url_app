@@ -18,11 +18,15 @@ const Upload: React.FC = () => {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("http://localhost:5000/upload", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const res = await axios.post(
+        "https://https://url-gen.onrender.com/api/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       setUrl(res.data.url);
     } catch (error) {
