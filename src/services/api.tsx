@@ -7,13 +7,12 @@ console.log("Latest API URL from environment:", apiUrl);
 
 const API = axios.create({
   baseURL: apiUrl,
-  withCredentials: true,
 });
 
 // Setting headers using AxiosHeaders
 API.interceptors.request.use((config) => {
   config.headers["Content-Type"] = "multipart/form-data";
-  config.headers["Custom-Header"] = "CustomValue"; // If you need any custom header
+  config.headers["Custom-Header"] = "CustomValue";
   return config;
 });
 
