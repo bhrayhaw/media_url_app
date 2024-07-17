@@ -4,6 +4,7 @@ import API from "../services/api";
 const Upload: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [url, setUrl] = useState<string>("");
+  const [msg, setMsg] = useState<string>("No file uploaded");
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -19,9 +20,10 @@ const Upload: React.FC = () => {
 
     try {
       const res = await API.post("/api/upload", formData);
-
+      setMsg('File uploaded successfully');
       setUrl(res.data.url);
     } catch (error) {
+      setMsg('Error uploading file');
       console.error("Error uploading file:", error);
     }
   };
@@ -40,6 +42,7 @@ const Upload: React.FC = () => {
           Uploaded URL: <a href={url}>{url}</a>
         </p>
       )}
+      {msg && <p>{msg}</p>}
     </div>
   );
 };
