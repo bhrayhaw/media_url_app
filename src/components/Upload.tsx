@@ -43,7 +43,7 @@ const Upload: React.FC = () => {
     const fetchUrl = async () => {
       try {
         const res = await API.get("/api/urls");
-        setUrls(res.data);
+        setUrls(res.data.urls);
       } catch (error) {
         console.error("Failed to fetch URL:", error);
       }
