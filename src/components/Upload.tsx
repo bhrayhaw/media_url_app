@@ -61,8 +61,8 @@ const Upload: React.FC = () => {
       >
         Upload
       </button>
+      {msg && <p className="bg-gray-600 text-white w-1/2">{msg}</p>}
       <ul>{urls && urls.map((url, index) => <li key={index}>{url}</li>)}</ul>
-      {msg && <p>{msg}</p>}
     </div>
   );
 };
