@@ -43,6 +43,7 @@ const Upload: React.FC = () => {
     const fetchUrl = async () => {
       try {
         const res = await API.get("/api/urls");
+        console.log("Displaying URLs");
         console.log("URLs:", res.data.urls);
         setUrls(res.data.urls);
       } catch (error) {
