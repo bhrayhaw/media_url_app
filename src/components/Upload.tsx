@@ -42,8 +42,8 @@ const Upload: React.FC = () => {
   useEffect(() => {
     const fetchUrl = async () => {
       try {
-        const res = await API.get("/api/urls");
         console.log("Displaying URLs");
+        const res = await API.get("/api/urls");
         console.log("URLs:", res.data.urls);
         setUrls(res.data.urls);
       } catch (error) {
